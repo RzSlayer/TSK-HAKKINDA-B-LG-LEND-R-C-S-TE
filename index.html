@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>TÜRK SİLAHLI KUVVETLERİ</title>
+    <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <style>
+        body {
+            background: #2c3e50;
+            color: white;
+            font-family: Arial;
+            margin: 0;
+            padding: 20px;
+        }
+
+        .birlik-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 2fr);
+            /* 2 eşit sütun */
+            grid-gap: 20px;
+            /* Elemanlar arası boşluk */
+            margin: 50px auto;
+            max-width: 900px;
+        }
+
+        .birlik {
+            background: #e74c3c;
+            color: black;
+            padding: 30px;
+            border: 3px solid #f39c12;
+            text-align: center;
+            border-radius: 10px;
+            transition: transform 0.3s ease;
+            box-shadow:  0 4px 10px rgba(0,0,0,1.0);
+        }
+
+        .birlik:hover {
+            transform: scale(1.05);
+            /* Fareyle üzerine gelince büyüsün */
+            background: #52cc00;
+            cursor: pointer;
+        }
+
+        /* 📱 MOBİL UYUMLU GRID (600px altı) */
+        @media screen and (max-width: 600px) {
+            .birlik-grid {
+                grid-template-columns: repeat(2, 1fr);
+                /* 2 sütun */
+                grid-gap: 15px;
+            }
+        }
+
+        /* 📱 KÜÇÜK MOBİL (400px altı) */
+        @media screen and (max-width: 400px) {
+            .birlik-grid {
+                grid-template-columns: 1fr;
+                /* 1 sütun */
+            }
+        }
+    </style>
+</head>
+
+<body>
+  <script>
+    // Detaylı birlik bilgileri (fotoğraflı)
+   const birlikBilgileri = {
+    "KARA KUVVETLERİ": {
+        baslik: "KARA KUVVETLERİ",
+        icerik: `
+            <p><strong>Kuruluş:</strong> MÖ 209 (Mete Han dönemi)</p>
+            <p><strong>Mevcut Personel:</strong> 2.200.000 (Aktif: 450.000, Yedek: 1.750.000)</p>
+            <p><strong>Donanım:</strong> Leopard 2A4 ve Kaplan 2 tankları, ACV-15 ve FNSS zırhlı araçlar, T-155 Fırtına obüsleri, çeşitli hafif zırhlı ve lojistik araçlar, taktik radar ve komuta kontrol sistemleri</p>
+            <p><strong>Özel Birlikler:</strong> Komando Tugayları, Özel Havacılık Birliği, Bordo Bereliler (Kara Özel Kuvvetleri), Jandarma ve PÖH ile koordineli operasyonlar</p>
+            <p><strong>Görev Alanları:</strong> Kara muharebesi, sınır güvenliği, terörle mücadele, dağ ve orman operasyonları, kriz ve afet bölgelerine müdahale, uluslararası barış ve NATO görevleri</p>
+            <p><strong>Eğitim:</strong> Temel askerlik eğitimi, ileri seviye taktiksel eğitimler, paraşüt, hayatta kalma, yakın dövüş, dağ ve kış koşullarında manevra, liderlik ve kriz yönetimi eğitimleri</p>
+            <p><strong>Nasıl Olunur:</strong> Askerlik hizmetini tamamlayan, zorlu fiziksel testlerden geçen ve özel seçme kurslarından başarılı olan adaylar kabul edilir. Eleme süreci yoğun ve yüksek disiplin gerektirir.</p>
+            <p><strong>Operasyon Örnekleri:</strong> PKK, DEAŞ ve sınır ötesi operasyonlar, NATO tatbikatları, sınır güvenliği ve kritik tesis savunma görevleri</p>
+            <p><strong>Modernizasyon:</strong> Tank, obüs ve zırhlı araçların modernizasyonu devam etmekte, yerli üretim ve dijital savaş sistemleri entegre edilmektedir.</p>
+            <img src="https://www.tsk.tr/Upload/Medya/KKK/1.jpg" width="100%" style="border-radius: 10px; margin-top: 15px;">
+        `
+    },
+    "HAVA KUVVETLERİ": {
+        baslik: "HAVA KUVVETLERİ",
+        icerik: `
+            <p><strong>Kuruluş:</strong> 1 Haziran 1911</p>
+            <p><strong>Mevcut Personel:</strong> 85.000</p>
+            <p><strong>Donanım:</strong> F-16 Fighting Falcon, Bayraktar TB2/SİHA, Hürkuş, ATAK helikopterleri, TAI Anka İHA, KC-135 tanker uçakları, AWACS radar uçakları, çeşitli eğitim uçakları</p>
+            <p><strong>Üsler:</strong> Akıncı Üssü (Ankara), 5. Ana Jet Üssü (Merzifon), Malatya Erhaç, Konya, Diyarbakır ve diğer stratejik üsler</p>
+            <p><strong>Özel Birlikler:</strong> Hava Komando Taburları, Özel Hava Kuvvetleri</p>
+            <p><strong>Görev Alanları:</strong> Hava üstünlüğü, hava savunma, stratejik bombardıman, hava desteği, keşif ve istihbarat operasyonları, insansız hava araçları ile gözetim</p>
+            <p><strong>Eğitim:</strong> Hava Harp Okulu, Astsubay Meslek Yüksekokulu veya sivil pilotluk sonrası simülatör ve taktik uçuş eğitimleri, gece ve zorlu koşullarda uçuş, kriz yönetimi</p>
+            <p><strong>Nasıl Olunur:</strong> Fiziksel ve zihinsel testlerden geçen adaylar Hava Harp Okulu veya ilgili meslek yüksekokullarına kabul edilir. İleri eğitimle pilot, teknisyen veya stratejik planlama uzmanı olunabilir.</p>
+            <p><strong>Operasyon Örnekleri:</strong> Fırat Kalkanı, Barış Pınarı, Suriye sınırında hava desteği operasyonları, NATO tatbikatları ve uluslararası insani yardım görevleri</p>
+            <p><strong>Modernizasyon:</strong> Yerli insansız hava araçları (İHA), SİHA ve ileri radar sistemleri ile hava üstünlüğü artırılmaktadır.</p>
+            <img src="https://www.tsk.tr/Upload/Medya/HvKK/1.jpg" width="100%" style="border-radius: 10px; margin-top: 15px;">
+        `
+    },
+    "DENİZ KUVVETLERİ": {
+        baslik: "DENİZ KUVVETLERİ",
+        icerik: `
+            <p><strong>Kuruluş:</strong> 1081 (Çaka Bey dönemi)</p>
+            <p><strong>Mevcut Personel:</strong> 55.000</p>
+            <p><strong>Donanım:</strong> MİLGEM sınıfı korvetler, Reis sınıfı denizaltılar, TCG Anadolu amfibi hücum gemisi, fırkateynler, hücumbotlar, deniz karakol gemileri</p>
+            <p><strong>Önemli Limanlar:</strong> Gölcük, İzmir, Aksaz, Erdek</p>
+            <p><strong>Özel Birlikler:</strong> SAT (Su Altı Taarruz), Deniz Piyade Taburları</p>
+            <p><strong>Görev Alanları:</strong> Deniz hakimiyeti, kıyı savunması, liman güvenliği, denizden sızma ve sabotaj, kritik tesis ve tanker koruma, NATO deniz operasyonları</p>
+            <p><strong>Eğitim:</strong> Deniz Harp Okulu, Deniz Astsubay Meslek Yüksekokulu, özel su altı operasyonları ve amfibi eğitimler, taktiksel planlama ve liderlik</p>
+            <p><strong>Nasıl Olunur:</strong> Deniz Harp Okulu veya uzman erbaş eğitimi sonrası deniz kuvvetleri personeli özel birimlere seçilir, fiziksel ve psikolojik testler uygulanır</p>
+            <p><strong>Operasyon Örnekleri:</strong> Akdeniz ve Ege’de güvenlik operasyonları, Mavi Vatan tatbikatları, uluslararası deniz güvenliği görevleri</p>
+            <p><strong>Modernizasyon:</strong> Yeni nesil korvet, denizaltı ve amfibi gemiler, drone ve insansız deniz araçları ile güçlendirilmiştir</p>
+            <img src="https://www.tsk.tr/Upload/Medya/DKK/1.jpg" width="100%" style="border-radius: 10px; margin-top: 15px;">
+        `
+    },
+    "JANDARMA KUVVETLERİ": {
+        baslik: "JANDARMA",
+        icerik: `
+            <p><strong>Kuruluş:</strong> 1839</p>
+            <p><strong>Mevcut Personel:</strong> 310.000</p>
+            <p><strong>Görev Alanı:</strong> İç güvenlik, sınır gözetimi, kırsal alan güvenliği, terörle mücadele, arama kurtarma, kamu düzeni</p>
+            <p><strong>Özel Birlikler:</strong> JÖAK (Jandarma Özel Asayiş Komando), Jandarma Komando Tugayları</p>
+            <p><strong>Eğitim:</strong> Jandarma Astsubay Meslek Yüksekokulu, Jandarma Komando Okulu, dağ ve orman eğitimleri, taktiksel operasyon ve kriz yönetimi</p>
+            <p><strong>Nasıl Olunur:</strong> Fiziksel ve psikolojik testlerden geçen adaylar, jandarma komando okullarına kabul edilir. Yüksek disiplin ve operasyon tecrübesi gereklidir</p>
+            <p><strong>Operasyon Örnekleri:</strong> Kırsal alan güvenliği operasyonları, terörle mücadele, sınır bölgelerinde devriye ve istihbarat faaliyetleri</p>
+            <p><strong>Modernizasyon:</strong> Yeni iletişim ve gözetleme sistemleri ile jandarma timleri donatılmaktadır. Gözetleme dronları ve mobil operasyon birimleri kullanılır</p>
+            <img src="https://www.tsk.tr/Upload/Medya/JGK/1.jpg" width="100%" style="border-radius: 10px; margin-top: 15px;">
+        `
+    },
+    "SU ALTI TAARRUZ": {
+        baslik: "SU ALTI TAARRUZ (SAT)",
+        icerik: `
+            <p><strong>Kuruluş:</strong> 1963</p>
+            <p><strong>Mevcut Personel:</strong> Gizli (Tahmini birkaç yüz seçkin asker)</p>
+            <p><strong>Görev Alanı:</strong> Denizden sızma, sabotaj, liman ve gemi baskınları, su altı imha görevleri, rehine kurtarma, istihbarat toplama, kara ve deniz koordineli operasyonlar</p>
+            <p><strong>Donanım:</strong> Mini denizaltılar, dalış ekipmanları, su altı patlayıcılar, insansız deniz araçları (UUV), özel silahlar, modifiye saldırı tekneleri</p>
+            <p><strong>Eğitim:</strong> 2 yıla yakın çok aşamalı eğitim; serbest dalış, derin deniz dalışı, paraşütle sızma, yakın dövüş, hayatta kalma, taktik liderlik, hedef istihbaratı</p>
+            <p><strong>Nasıl Olunur:</strong> Deniz Kuvvetleri’nden seçilen personel önce fiziksel ve psikolojik testlerden geçer. SAT kursuna kabul edilenlerin %10-%15’i başarıyla tamamlar</p>
+            <p><strong>Operasyon Örnekleri:</strong> Akdeniz, Ege ve Karadeniz’de kritik görevler, NATO tatbikatları, özel kurtarma ve sabotaj görevleri, Mavi Vatan operasyonları</p>
+            <p><strong>Modernizasyon:</strong> Yeni su altı araçları, drone ve gelişmiş silah sistemleri ile sürekli güncellenmektedir</p>
+            <img src="https://www.denizharbokulu.edu.tr/images/haberler/sat.jpg" width="100%" style="border-radius: 10px; margin-top: 15px;">
+        `
+    },
+    "ÖZEL KUVVETLER": {
+        baslik: "ÖZEL KUVVETLER",
+        icerik: `
+            <p><strong>Kuruluş:</strong> 1952 (Kore Savaşı sonrası)</p>
+            <p><strong>Mevcut Personel:</strong> 20.000 (tahmini)</p>
+            <p><strong>Görev Alanları:</strong> Özel harekât, istihbarat toplama, rehine kurtarma, sabotaj, kritik tesis güvenliği, uluslararası kriz operasyonları, VIP koruma, stratejik hava ve kara operasyonları</p>
+            <p><strong>Donanım:</strong> Uzun menzilli tüfekler, özel patlayıcılar, gece görüş sistemleri, insansız hava ve kara araçları, modifiye araçlar ve zırhlı personel taşıyıcılar, iletişim ve komuta kontrol cihazları</p>
+            <p><strong>Eğitim:</strong> 2 yıl temel eğitim + 6 ay dağlık arazi, paraşüt, yakın dövüş, psikolojik dayanıklılık, liderlik ve yönetsel eğitim. Ek olarak, su altı operasyonları, arama kurtarma, stratejik planlama ve istihbarat analizi eğitimi</p>
+            <p><strong>Nasıl Olunur:</strong> Fiziksel ve psikolojik testlerden başarılı olan personel seçilir. Eğitim yoğun ve elenme oranı yüksektir. Dünya standartlarında zorluk seviyesindedir</p>
+            <p><strong>Operasyon Örnekleri:</strong> Yurt içi ve yurt dışı kritik operasyonlar, NATO ve diğer ülkelerle ortak tatbikatlar, rehine kurtarma, terörle mücadele operasyonları</p>
+            <p><strong>Modernizasyon:</strong> Silah ve ekipman modernizasyonu, İHA ve drone entegrasyonu, özel eğitim tekniklerinin sürekli güncellenmesi</p>
+            <img src="https://www.tsk.tr/Upload/Medya/OZK/1.jpg" width="100%" style="border-radius: 10px; margin-top: 15px;">
+        `
+    }
+};
+
+
+    // Bilgi gösterme fonksiyonu
+    function bilgiGoster(birlikAdi) {
+        const bilgi = birlikBilgileri[birlikAdi];
+        
+        // Mevcut bilgi kutusunu temizle
+        let bilgiKutusu = document.getElementById("bilgiKutusu");
+        if (bilgiKutusu) {
+            bilgiKutusu.remove();
+        }
+        
+        // Yeni bilgi kutusu oluştur
+        bilgiKutusu = document.createElement("div");
+        bilgiKutusu.id = "bilgiKutusu";
+        bilgiKutusu.style.cssText = `
+            background: #34495e; 
+            padding: 30px; 
+            margin: 30px auto; 
+            max-width: 800px; 
+            border-radius: 15px; 
+            border: 3px solid #f39c12;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+            color: white;
+            font-family: Arial;
+        `;
+        
+        // İçeriği doldur
+        bilgiKutusu.innerHTML = `
+            <h2 style="color: #f39c12; text-align: center; border-bottom: 2px solid #e74c3c; padding-bottom: 10px;">
+                ${bilgi.baslik}
+            </h2>
+            <div style="line-height: 1.8; font-size: 16px;">
+                ${bilgi.icerik}
+            </div>
+            <div style="text-align: center; margin-top: 20px;">
+                <button onclick="this.parentElement.parentElement.remove()" 
+                        style="background: #e74c3c; color: white; padding: 12px 25px; border: none; border-radius: 8px; cursor: pointer; font-weight: bold;">
+                    KAPAT
+                </button>
+            </div>
+        `;
+        
+        document.body.appendChild(bilgiKutusu);
+        
+        // Sayfayı bilgi kutusuna kaydır
+        bilgiKutusu.scrollIntoView({ behavior: 'smooth' });
+    }
+</script>
+    <h1 style="text-align: center;">TÜRK SİLAHLI KUVVETLERİ</h1>
+    <h1 style="text-align: center;">(TSK)</h1>
+    <center>
+        <img src=https://i.pinimg.com/originals/30/d8/2a/30d82a7042d617977b76ef90fd610f56.png alt="TSK LOGO" width="300"
+            height="300">
+            
+    </center>
+    <div class="birlik-grid">
+       <div class="birlik" onclick="bilgiGoster('KARA KUVVETLERİ')">KARA KUVVETLERİ</div>
+<div class="birlik" onclick="bilgiGoster('HAVA KUVVETLERİ')">HAVA KUVVETLERİ</div>
+<div class="birlik" onclick="bilgiGoster('DENİZ KUVVETLERİ')">DENİZ KUVVETLERİ</div>
+<div class="birlik" onclick="bilgiGoster('JANDARMA KUVVETLERİ')">JANDARMA KUVVETLERİ</div>
+<div class="birlik" onclick="bilgiGoster('SU ALTI TAARRUZ')">SU ALTI TAARRUZ</div>
+<div class="birlik" onclick="bilgiGoster('ÖZEL KUVVETLER')">ÖZEL KUVVETLER</div>
+    </div>
+</body>
+
+</html>
